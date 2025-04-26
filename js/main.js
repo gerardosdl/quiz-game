@@ -41,3 +41,5 @@ let maxScore;
 
 
 /*----- functions -----*/
+function init(){
+  }
