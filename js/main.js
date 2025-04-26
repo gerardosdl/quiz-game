@@ -41,5 +41,13 @@ let maxScore;
 
 
 /*----- functions -----*/
+init();
+
 function init(){
+  
+  render();
   }
+
+function render(){
+  
+}  
