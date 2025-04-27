@@ -1,4 +1,9 @@
 * {
     box-sizing: border-box;
+  }
+
+.question{
+    display: flex;
+    flex-direction: column;
     
   }
