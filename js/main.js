@@ -30,7 +30,8 @@ let maxScore;
 
 
 /*----- cached elements  -----*/
-
+const questionEl = document.querySelector(".question");
+const answerEl = document.querySelectorAll()
 
 /*----- event listeners -----*/
 
@@ -39,7 +40,7 @@ let maxScore;
 init();
 questionIdx = 0;
 score = 0;
-maxScore = 0;
+maxScore = 10;
 
 function init(){
   questions = [
@@ -114,5 +115,15 @@ function render(){
 }  
 
 function renderQuestions(){
+    if (questionIdx < question.length){
 
+    }
+  // When questionIdx is < questions.length, render the 
+//        current question and its list of possible answers
+//   2.2) When questionIdx === questions.length, quiz is done
+//        so render a message based upon
+//        the results state:
+//        "You are done! Your score is ${score}!"
+//   2.3) If score >= maxScore, render message, and update max score and save it:
+//         "Outstanding! You've got the max score!"
 }
