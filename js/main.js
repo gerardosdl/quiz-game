@@ -7,16 +7,14 @@ let questionIdx;
 let answers;
 let chosenAnswer;
 let rightAnswer;
-let timer;
 let score;
 let maxScore;
 
-// 1) Initialize all state, then call render() if timer clicked === true.
-//    1.1) begin timer when clicked.
+// 1) Initialize all state, then call render().
 // 2) render() will render one of the following:
 //   2.1) When questionIdx is < questions.length, render the 
 //        current question and its list of possible answers
-//   2.2) When questionIdx === questions.length || timer === 0, quiz is done
+//   2.2) When questionIdx === questions.length, quiz is done
 //        so render a message based upon
 //        the results state:
 //        "You are done! Your score is ${score}!"
@@ -49,5 +47,6 @@ function init(){
   }
 
 function render(){
-  
+
 }  
+
