@@ -1,9 +1,13 @@
 * {
     box-sizing: border-box;
   }
-
 .question{
+    text-align: center;
+}
+
+.answers{
     display: flex;
     flex-direction: column;
-    
-  }
+    justify-content: space-around;
+    height: 20vh;
+}
