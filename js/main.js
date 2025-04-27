@@ -16,7 +16,7 @@ let maxScore;
 //        the results state:
 //        "You are done! Your score is ${score}!"
 //   2.3) If score >= maxScore, render message, and update max score and save it:
-//         "Outstanding! You've got the new max score!"
+//         "Outstanding! You've got the max score!"
 // 3) When a player clicks their answer to a question:
 //   3.1) Update the current question object's chosenAnswer to the
 //        index of the answer.
@@ -104,6 +104,7 @@ function init(){
     chosenAnswer: null
     },
   ];
+  // riddle questions's sources: https://www.riddles.com/ https://www.rd.com/article/riddles-for-adults/
   
   render();
   }
@@ -111,5 +112,7 @@ function init(){
 function render(){
 
 }  
-// riddle questions's sources: https://www.riddles.com/ https://www.rd.com/article/riddles-for-adults/
 
+function renderQuestions(){
+
+}
