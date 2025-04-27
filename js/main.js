@@ -4,9 +4,6 @@
 /*----- state variables -----*/
 let questions;
 let questionIdx;
-let answers;
-let chosenAnswer;
-let rightAnswer;
 let score;
 let maxScore;
 
@@ -40,6 +37,9 @@ let maxScore;
 
 /*----- functions -----*/
 init();
+questionIdx = 0;
+score = 0;
+maxScore = 0;
 
 function init(){
   questions = [
