@@ -31,18 +31,20 @@ let maxScore;
 
 /*----- cached elements  -----*/
 const questionEl = document.querySelector(".question");
-const answerEl = document.querySelectorAll()
+const answerEl = document.querySelectorAll(".answer");
 
 /*----- event listeners -----*/
 
 
 /*----- functions -----*/
 init();
-questionIdx = 0;
-score = 0;
-maxScore = 10;
+
 
 function init(){
+  questionIdx = 0;
+  score = 0;
+  maxScore = 10;
+  
   questions = [
     {
     question: "What has a head, a tail, is brown, and has no legs?",
@@ -111,12 +113,15 @@ function init(){
   }
 
 function render(){
-
+renderQuestions();
 }  
 
 function renderQuestions(){
-    if (questionIdx < question.length){
-
+    if (questionIdx < questions.length){
+      questionEl.textContent = questions[questionIdx].question;
+      questions[questionIdx].answers.forEach(function(answer, idx){
+        answerEl[idx].textContent = answer;
+      });
     }
   // When questionIdx is < questions.length, render the 
 //        current question and its list of possible answers
