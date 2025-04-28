@@ -18,7 +18,7 @@ let maxScore;
 //   2.3) If score >= maxScore, render message, and update max score and save it:
 //         "Outstanding! You've got the max score!"
 // 3) When a player clicks their answer to a question:
-//   3.1) Update the current question object's chosenAnswer to the
+//   3.1) Update the current question object's answer to the
 //        index of the answer.
 //   3.2) Call render().  Since an answer has been selected, render their
 //        selected answer differently (different styling).
@@ -34,7 +34,7 @@ const questionEl = document.querySelector(".question");
 const answerEl = document.querySelectorAll(".answer");
 const messageEl = document.querySelector("h3");
 /*----- event listeners -----*/
-
+document.querySelector(".answers").addEventListener("click", handleAnswer);
 
 /*----- functions -----*/
 init();
@@ -111,6 +111,17 @@ function init(){
 
   render();
   }
+
+  function handleAnswer(evt){
+    if (evt.target === AnswersClick){
+
+    }
+  }
+  // 3) When a player clicks their answer to a question:
+  //   3.1) Update the current question object's answer to the
+  //        index of the answer.
+  //   3.2) Call render().  Since an answer has been selected, render their
+  //        selected answer differently (different styling). 
 
 function render(){
 renderQuestions();
