@@ -133,7 +133,7 @@ function handleAnswer(evt){
 
 
 function handleSubmit (evt){
-if ((evt.target.id === "submit") & (question[questionIdx].chosenAnswer != questions[questionIdx].rightAnswer)){
+if ((evt.target.id === "submit") & (questions[questionIdx].chosenAnswer != questions[questionIdx].rightAnswer)){
   questionIdx = questionIdx + 1;
   } else if ((evt.target.id === "submit") & (questions[questionIdx].chosenAnswer === questions[questionIdx].rightAnswer)){
     questionIdx = questionIdx + 1;
