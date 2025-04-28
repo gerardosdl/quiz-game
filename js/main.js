@@ -32,7 +32,7 @@ let maxScore;
 /*----- cached elements  -----*/
 const questionEl = document.querySelector(".question");
 const answerEl = document.querySelectorAll(".answer");
-const messageEl = document.querySelector("#score");
+const messageEl = document.querySelector("h3");
 /*----- event listeners -----*/
 
 
