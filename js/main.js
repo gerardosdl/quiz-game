@@ -139,7 +139,8 @@ if ((questions[questionIdx].chosenAnswer != questions[questionIdx].rightAnswer))
   } else if (questions[questionIdx].chosenAnswer === questions[questionIdx].rightAnswer){
     questionIdx = questionIdx + 1;
     score = score + 1;
-  }
+  } else if (questionIdx >= questions.length) return;
+
   render();  
 }
 // 4) When a player clicks the "Submit" button:
