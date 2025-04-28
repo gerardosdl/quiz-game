@@ -38,7 +38,7 @@ const scoreEl = document.querySelector("#score");
 /*----- event listeners -----*/
 document.querySelector(".answers").addEventListener("click", handleAnswer);
 document.querySelector("#submit").addEventListener ("click", handleSubmit);
-
+document.querySelector("#restart").addEventListener("click", init);
 /*----- functions -----*/
 init();
 
