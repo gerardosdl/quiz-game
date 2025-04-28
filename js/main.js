@@ -112,33 +112,43 @@ function init(){
   render();
   }
 
-  function handleAnswer(evt){
-    if (evt.target === AnswersClick){
-
-    }
+function handleAnswer(evt){
+  if (evt.target.id === "first"){
+    questions[questionIdx].chosenAnswer = 0;
+  }else if (evt.target.id === "second"){
+    questions[questionIdx].chosenAnswer = 1;
+  }else if (evt.target.id === "third"){
+    questions[questionIdx].chosenAnswer = 2;
+  }else if (evt.target.id === "fourth"){
+    questions[questionIdx].chosenAnswer = 3;
   }
+  render();
+}
   // 3) When a player clicks their answer to a question:
   //   3.1) Update the current question object's answer to the
   //        index of the answer.
-  //   3.2) Call render().  Since an answer has been selected, render their
-  //        selected answer differently (different styling). 
-
+  
 function render(){
-renderQuestions();
-renderMessage();
-}  
-
+    renderQuestions();
+    renderMessage();
+  }  
+  
 function renderQuestions(){
-    if (questionIdx < questions.length){
-      questionEl.textContent = questions[questionIdx].question;
-      questions[questionIdx].answers.forEach(function(answer, idx){
-        answerEl[idx].textContent = answer;
-      })
-    }
-  }   
-// When questionIdx is < questions.length, render the 
-//        current question and its list of possible answers
- 
+  if (questionIdx < questions.length){
+    questionEl.textContent = questions[questionIdx].question;
+      // When questionIdx is < questions.length, render the 
+      //        current question and its list of possible answers
+    questions[questionIdx].answers.forEach(function(answer, idx){
+       answerEl[idx].textContent = answer;
+        //   3.2) Call render().  Since an answer has been selected, render their
+        //        selected answer differently (different styling). 
+    if (questions[questionIdx].chosenAnswer === idx){
+          answerEl[idx].style.backgroundColor = "grey";
+      }else { answerEl[idx].style.backgroundColor = "";   
+      }
+    })
+  }
+}   
 function renderMessage(){
 if ((questionIdx === questions.length) & (score=maxScore)){
   messageEl.textContent = `Outstanding! You've got the max score of ${score}!`
