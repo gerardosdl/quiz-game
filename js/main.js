@@ -1,11 +1,11 @@
 /*----- constants -----*/
-
+const maxScore = 10;
 
 /*----- state variables -----*/
 let questions;
 let questionIdx;
 let score;
-let maxScore;
+
 
 // 1) Initialize all state, then call render().
 // 2) render() will render one of the following:
@@ -107,7 +107,6 @@ function init(){
   // riddle questions's sources: https://www.riddles.com/ https://www.rd.com/article/riddles-for-adults/
   questionIdx = 0;
   score = 0;
-  maxScore = 10;
 
   render();
   }
