@@ -110,6 +110,7 @@ function init(){
   // riddle questions's sources: https://www.riddles.com/ https://www.rd.com/article/riddles-for-adults/
   questionIdx = 0;
   score = 0;
+  messageEl.textContent = ""; //delete message after restart button is pressed
 
   render();
   }
