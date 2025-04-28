@@ -33,8 +33,10 @@ let score;
 const questionEl = document.querySelector(".question");
 const answerEl = document.querySelectorAll(".answer");
 const messageEl = document.querySelector("h3");
+
 /*----- event listeners -----*/
 document.querySelector(".answers").addEventListener("click", handleAnswer);
+document.querySelector("#submit").addEventListener ("click", handleSubmit);
 
 /*----- functions -----*/
 init();
@@ -127,10 +129,28 @@ function handleAnswer(evt){
   //   3.1) Update the current question object's answer to the
   //        index of the answer.
   
-function render(){
+
+
+function handleSubmit (evt){
+if (evt.target.id === "submit"){
+  questionIdx = questionIdx + 1;
+  }
+  render();  
+}
+// 4) When a player clicks the "Submit" button:
+//   4.1) Increment questionIdx
+//   4.2) If questionIdx === questions.length, all questions have been 
+//        answered - so update the results state
+//   4.3) Call render()
+
+
+
+
+  function render(){
     renderQuestions();
     renderMessage();
   }  
+  
   
 function renderQuestions(){
   if (questionIdx < questions.length){
