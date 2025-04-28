@@ -32,7 +32,7 @@ let maxScore;
 /*----- cached elements  -----*/
 const questionEl = document.querySelector(".question");
 const answerEl = document.querySelectorAll(".answer");
-
+const messageEl = document.querySelector("#score");
 /*----- event listeners -----*/
 
 
@@ -41,9 +41,6 @@ init();
 
 
 function init(){
-  questionIdx = 0;
-  score = 0;
-  maxScore = 10;
   
   questions = [
     {
@@ -108,12 +105,16 @@ function init(){
     },
   ];
   // riddle questions's sources: https://www.riddles.com/ https://www.rd.com/article/riddles-for-adults/
-  
+  questionIdx = 0;
+  score = 0;
+  maxScore = 10;
+
   render();
   }
 
 function render(){
 renderQuestions();
+renderMessage();
 }  
 
 function renderQuestions(){
@@ -121,14 +122,23 @@ function renderQuestions(){
       questionEl.textContent = questions[questionIdx].question;
       questions[questionIdx].answers.forEach(function(answer, idx){
         answerEl[idx].textContent = answer;
-      });
+      })
     }
-  // When questionIdx is < questions.length, render the 
+  }   
+// When questionIdx is < questions.length, render the 
 //        current question and its list of possible answers
-//   2.2) When questionIdx === questions.length, quiz is done
+ 
+function renderMessage(){
+if ((questionIdx === questions.length) & (score=maxScore)){
+  messageEl.textContent = `Outstanding! You've got the max score of ${score}!`
+}else if ((questionIdx === questions.length) & (score<maxScore)){
+  messageEl.textContent = `You are done! Your score is ${score}`
+  }
+}
+//  2.2) When questionIdx === questions.length, quiz is done
 //        so render a message based upon
 //        the results state:
 //        "You are done! Your score is ${score}!"
-//   2.3) If score >= maxScore, render message, and update max score and save it:
+//   2.3) If score >= maxScore, render message:
 //         "Outstanding! You've got the max score!"
-}
+
