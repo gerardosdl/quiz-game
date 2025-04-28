@@ -12,3 +12,9 @@ body{
     justify-content: space-around;
     height: 40vh;
 }
+
+#restart{
+    display: block;
+    margin: 10em 1em;
+    background-color: rgb(206, 39, 39);
+}
