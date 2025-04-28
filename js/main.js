@@ -4,7 +4,7 @@ const maxScore = 10;
 /*----- state variables -----*/
 let questions;
 let questionIdx;
-let score;
+let score = 0;
 
 
 // 1) Initialize all state, then call render().
@@ -15,7 +15,7 @@ let score;
 //        so render a message based upon
 //        the results state:
 //        "You are done! Your score is ${score}!"
-//   2.3) If score >= maxScore, render message, and update max score and save it:
+//   2.3) If score >= maxScore, render message:
 //         "Outstanding! You've got the max score!"
 // 3) When a player clicks their answer to a question:
 //   3.1) Update the current question object's answer to the
@@ -27,13 +27,14 @@ let score;
 //   4.2) If questionIdx === questions.length, all questions have been 
 //        answered - so update the results state
 //   4.3) Call render()
+// 5) Render score board in order to show current score. 
 
 
 /*----- cached elements  -----*/
 const questionEl = document.querySelector(".question");
 const answerEl = document.querySelectorAll(".answer");
 const messageEl = document.querySelector("h3");
-
+const scoreEl = document.querySelector("#score");
 /*----- event listeners -----*/
 document.querySelector(".answers").addEventListener("click", handleAnswer);
 document.querySelector("#submit").addEventListener ("click", handleSubmit);
@@ -132,8 +133,11 @@ function handleAnswer(evt){
 
 
 function handleSubmit (evt){
-if (evt.target.id === "submit"){
+if ((evt.target.id === "submit") & (question[questionIdx].chosenAnswer != questions[questionIdx].rightAnswer)){
   questionIdx = questionIdx + 1;
+  } else if ((evt.target.id === "submit") & (questions[questionIdx].chosenAnswer === questions[questionIdx].rightAnswer)){
+    questionIdx = questionIdx + 1;
+    score = score + 1;
   }
   render();  
 }
@@ -149,6 +153,7 @@ if (evt.target.id === "submit"){
   function render(){
     renderQuestions();
     renderMessage();
+    renderScoreBoard();
   }  
   
   
@@ -182,3 +187,6 @@ if ((questionIdx === questions.length) & (score=maxScore)){
 //   2.3) If score >= maxScore, render message:
 //         "Outstanding! You've got the max score!"
 
+function renderScoreBoard(){
+  scoreEl.textContent = `Score: ${score}`;
+}
