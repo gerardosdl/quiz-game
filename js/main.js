@@ -4,7 +4,7 @@ const maxScore = 10;
 /*----- state variables -----*/
 let questions;
 let questionIdx;
-let score = 0;
+let score;
 
 
 // 1) Initialize all state, then call render().
@@ -133,9 +133,9 @@ function handleAnswer(evt){
 
 
 function handleSubmit (evt){
-if ((evt.target.id === "submit") & (questions[questionIdx].chosenAnswer != questions[questionIdx].rightAnswer)){
+if ((questions[questionIdx].chosenAnswer != questions[questionIdx].rightAnswer)){
   questionIdx = questionIdx + 1;
-  } else if ((evt.target.id === "submit") & (questions[questionIdx].chosenAnswer === questions[questionIdx].rightAnswer)){
+  } else if (questions[questionIdx].chosenAnswer === questions[questionIdx].rightAnswer){
     questionIdx = questionIdx + 1;
     score = score + 1;
   }
@@ -174,9 +174,9 @@ function renderQuestions(){
   }
 }   
 function renderMessage(){
-if ((questionIdx === questions.length) & (score=maxScore)){
+if ((questionIdx === questions.length) && (score===maxScore)){
   messageEl.textContent = `Outstanding! You've got the max score of ${score}!`
-}else if ((questionIdx === questions.length) & (score<maxScore)){
+}else if ((questionIdx === questions.length) && (score<maxScore)){
   messageEl.textContent = `You are done! Your score is ${score}`
   }
 }
