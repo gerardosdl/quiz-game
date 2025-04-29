@@ -5,7 +5,8 @@ const maxScore = 10;
 let questions;
 let questionIdx;
 let score;
-
+let elapsedTime;
+let isTicking;
 
 // 1) Initialize all state, then call render().
 // 2) render() will render one of the following:
@@ -28,6 +29,7 @@ let score;
 //        answered - so update the results state
 //   4.3) Call render()
 // 5) Render score board in order to show current score. 
+// 6) Set timer to increase by 1 second and update display. 
 
 
 /*----- cached elements  -----*/
@@ -35,6 +37,7 @@ const questionEl = document.querySelector(".question");
 const answerEl = document.querySelectorAll(".answer");
 const messageEl = document.querySelector("h3");
 const scoreEl = document.querySelector("#score");
+const timeEl = document.querySelector("#timer");
 /*----- event listeners -----*/
 document.querySelector(".answers").addEventListener("click", handleAnswer);
 document.querySelector("#submit").addEventListener ("click", handleSubmit);
@@ -111,7 +114,8 @@ function init(){
   questionIdx = 0;
   score = 0;
   messageEl.textContent = ""; //delete message after restart button is pressed
-
+  elapsedTime = 0;
+  isTicking = true;
   render();
   }
 
@@ -150,7 +154,15 @@ if ((questions[questionIdx].chosenAnswer != questions[questionIdx].rightAnswer))
 //   4.3) Call render()
 
 
-
+setInterval(() => {
+  if (!isTicking) return;
+  elapsedTime++;
+  timeEl.textContent = `You took ${elapsedTime}`; // Update the DOM element that is displaying the
+  // elapsed time. You can optionally format the 
+  // elapsed time to display as mm:ss if you want
+ }, 1000);
+// 6) Set timer to increase by 1 second and update display. 
+  render();
 
   function render(){
     renderQuestions();
