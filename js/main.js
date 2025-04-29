@@ -139,13 +139,12 @@ function handleAnswer(evt){
 
 function handleSubmit (evt){
   if (!isTicking) return;  
-  if ((questions[questionIdx].chosenAnswer != questions[questionIdx].rightAnswer)){
-  questionIdx = questionIdx + 1;
-  } else if (questions[questionIdx].chosenAnswer === questions[questionIdx].rightAnswer){
-    questionIdx = questionIdx + 1;
-    score = score + 1;
-  } else if (questionIdx >= questions.length) return;
 
+  if (questions[questionIdx].chosenAnswer === questions[questionIdx].rightAnswer){
+    score = score + 1;
+  }
+  questionIdx = questionIdx + 1;
+  if (questionIdx >= questions.length) isTicking = false;
 
   render();  
 }
@@ -161,8 +160,9 @@ function formatTime(seconds){
   return `${mins}:${sec}`;// elapsed time to display as mm:ss 
 }
 // source: https://stackoverflow.com/questions/1322732/convert-seconds-to-hh-mm-ss-with-javascript
+
 setInterval(() => {
-  if (!isTicking) return timeEl.textContent = `Time is up!`;
+  if (!isTicking) return timeEl.textContent = `Great attempt!`;
   elapsedTime--;
   timeEl.textContent = `You have ${formatTime(elapsedTime)} seconds`; // Update the DOM element that is displaying the
  // elapsed time.
@@ -197,13 +197,19 @@ function renderQuestions(){
   }
 }   
 function renderMessage(){
-if (!isTicking) return messageEl.textContent = `You are done! Your score is ${score}`; 
-else if((questionIdx === questions.length) && (score===maxScore)){
-  messageEl.textContent = `Outstanding! You've got the max score of ${score}!`
-}else if ((questionIdx === questions.length) && (score<maxScore)){
-  messageEl.textContent = `You are done! Your score is ${score}`
+if ((!isTicking) && (score===maxScore)){ 
+  return messageEl.textContent = `Outstanding! You've got the max score of ${score}/${maxScore}!`; 
+  } else if ((!isTicking) && (score===score)){
+  return messageEl.textContent = `You are done! Your score is ${score}/${maxScore}`;
   }
 }
+// else if((questionIdx === questions.length) && (score===maxScore)){
+//   messageEl.textContent = `Outstanding! You've got the max score of ${score}!`
+// }else if ((questionIdx === questions.length) && (score<maxScore)){
+//   messageEl.textContent = `You are done! Your score is ${score}/${maxScore} `
+// }
+
+
 //  2.2) When questionIdx === questions.length, quiz is done
 //        so render a message based upon
 //        the results state:

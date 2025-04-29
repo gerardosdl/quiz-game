@@ -4,6 +4,10 @@
     background-color: rgb(238, 238, 238);
 }
 
+h1{
+    color:  #001F54;
+}
+
 body{
     text-align: center;
     font-family: Roboto, sans-serif;
@@ -19,9 +23,14 @@ body{
     height: 40vh;
 }
 
+.answer{
+    border-radius: 15%;
+}
+
 #submit{
     background-color: rgb(136, 231, 136);
     margin-top: 1em;
+    border-radius: 15%;
 }
 
 #restart{
