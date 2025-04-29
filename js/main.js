@@ -29,7 +29,7 @@ let isTicking;
 //        answered - so update the results state
 //   4.3) Call render()
 // 5) Render score board in order to show current score. 
-// 6) Set timer to increase by 1 second and update display. 
+// 6) 6) Set timer countdown to decrease by 1 second and update display. 
 
 
 /*----- cached elements  -----*/
@@ -80,7 +80,7 @@ function init(){
     chosenAnswer: null
     },
     {
-    question: "I have a single waving hand I'm present in places across the land On fairer days, I depart I shorten with a broken heart. What am I?",
+    question: "I have a single waving hand I'm present in places across the land. On fairer days, I depart I shorten with a broken heart. What am I?",
     answers: ["A leaf", "A kite", "A windsock", " A flag"],
     rightAnswer: 3,
     chosenAnswer: null
@@ -114,7 +114,7 @@ function init(){
   questionIdx = 0;
   score = 0;
   messageEl.textContent = ""; //delete message after restart button is pressed
-  elapsedTime = 10;
+  elapsedTime = 300;
   isTicking = true;
   render();
   }
@@ -164,7 +164,7 @@ setInterval(() => {
   // elapsed time to display as mm:ss if you want
   if (elapsedTime === 0) isTicking = false;
  }, 1000);
-// 6) Set timer to increase by 1 second and update display. 
+// 6) Set timer countdown to decrease by 1 second and update display. 
   render();
 
   function render(){
@@ -192,7 +192,7 @@ function renderQuestions(){
   }
 }   
 function renderMessage(){
-if (!isTicking) return; 
+if (!isTicking) return messageEl.textContent = `You are done! Your score is ${score}`; 
 else if((questionIdx === questions.length) && (score===maxScore)){
   messageEl.textContent = `Outstanding! You've got the max score of ${score}!`
 }else if ((questionIdx === questions.length) && (score<maxScore)){
