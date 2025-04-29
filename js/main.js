@@ -114,7 +114,7 @@ function init(){
   questionIdx = 0;
   score = 0;
   messageEl.textContent = ""; //delete message after restart button is pressed
-  elapsedTime = 0;
+  elapsedTime = 10;
   isTicking = true;
   render();
   }
@@ -138,12 +138,14 @@ function handleAnswer(evt){
 
 
 function handleSubmit (evt){
-if ((questions[questionIdx].chosenAnswer != questions[questionIdx].rightAnswer)){
+  if (!isTicking) return;  
+  if ((questions[questionIdx].chosenAnswer != questions[questionIdx].rightAnswer)){
   questionIdx = questionIdx + 1;
   } else if (questions[questionIdx].chosenAnswer === questions[questionIdx].rightAnswer){
     questionIdx = questionIdx + 1;
     score = score + 1;
   } else if (questionIdx >= questions.length) return;
+
 
   render();  
 }
@@ -155,11 +157,12 @@ if ((questions[questionIdx].chosenAnswer != questions[questionIdx].rightAnswer))
 
 
 setInterval(() => {
-  if (!isTicking) return;
-  elapsedTime++;
-  timeEl.textContent = `You took ${elapsedTime}`; // Update the DOM element that is displaying the
+  if (!isTicking) return timeEl.textContent = `Time is up!`;
+  elapsedTime--;
+  timeEl.textContent = `You have ${elapsedTime} seconds`; // Update the DOM element that is displaying the
   // elapsed time. You can optionally format the 
   // elapsed time to display as mm:ss if you want
+  if (elapsedTime === 0) isTicking = false;
  }, 1000);
 // 6) Set timer to increase by 1 second and update display. 
   render();
@@ -172,6 +175,7 @@ setInterval(() => {
   
   
 function renderQuestions(){
+  if (!isTicking) return;
   if (questionIdx < questions.length){
     questionEl.textContent = questions[questionIdx].question;
       // When questionIdx is < questions.length, render the 
@@ -188,7 +192,8 @@ function renderQuestions(){
   }
 }   
 function renderMessage(){
-if ((questionIdx === questions.length) && (score===maxScore)){
+if (!isTicking) return; 
+else if((questionIdx === questions.length) && (score===maxScore)){
   messageEl.textContent = `Outstanding! You've got the max score of ${score}!`
 }else if ((questionIdx === questions.length) && (score<maxScore)){
   messageEl.textContent = `You are done! Your score is ${score}`
