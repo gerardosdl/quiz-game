@@ -155,17 +155,22 @@ function handleSubmit (evt){
 //        answered - so update the results state
 //   4.3) Call render()
 
-
+function formatTime(seconds){
+  const mins = Math.floor(seconds/60);
+  const sec = seconds % 60;
+  return `${mins}:${sec}`;// elapsed time to display as mm:ss 
+}
+// source: https://stackoverflow.com/questions/1322732/convert-seconds-to-hh-mm-ss-with-javascript
 setInterval(() => {
   if (!isTicking) return timeEl.textContent = `Time is up!`;
   elapsedTime--;
-  timeEl.textContent = `You have ${elapsedTime} seconds`; // Update the DOM element that is displaying the
-  // elapsed time. You can optionally format the 
-  // elapsed time to display as mm:ss if you want
+  timeEl.textContent = `You have ${formatTime(elapsedTime)} seconds`; // Update the DOM element that is displaying the
+ // elapsed time.
   if (elapsedTime === 0) isTicking = false;
+  render();
  }, 1000);
 // 6) Set timer countdown to decrease by 1 second and update display. 
-  render();
+  
 
   function render(){
     renderQuestions();
