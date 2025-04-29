@@ -203,11 +203,7 @@ if ((!isTicking) && (score===maxScore)){
   return messageEl.textContent = `You are done! Your score is ${score}/${maxScore}`;
   }
 }
-// else if((questionIdx === questions.length) && (score===maxScore)){
-//   messageEl.textContent = `Outstanding! You've got the max score of ${score}!`
-// }else if ((questionIdx === questions.length) && (score<maxScore)){
-//   messageEl.textContent = `You are done! Your score is ${score}/${maxScore} `
-// }
+
 
 
 //  2.2) When questionIdx === questions.length, quiz is done
