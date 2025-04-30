@@ -162,7 +162,8 @@ function formatTime(seconds) {
 // source: https://stackoverflow.com/questions/1322732/convert-seconds-to-hh-mm-ss-with-javascript
 
 setInterval(() => {
-  if (!isTicking) return timeEl.textContent = `Great attempt!`;
+  if (!isTicking && score <= 3) return timeEl.textContent = `Nice attempt!`;
+  else if (!isTicking && score > 3) return timeEl.textContent = `Great attempt!`;
   elapsedTime--;
   timeEl.textContent = `You have ${formatTime(elapsedTime)} seconds`; // Update the DOM element that is displaying the
   // elapsed time.
