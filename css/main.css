@@ -51,7 +51,7 @@ body {
 #restart {
     margin: 2em 1em;
     background-color: rgb(200, 100, 100);
-    color: rgb(240, 255, 230);
+    color: white;
     border-radius: 20px;
     cursor: pointer;
     width: fit-content;
