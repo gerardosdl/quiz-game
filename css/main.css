@@ -7,6 +7,7 @@
 h1 {
     color: #001F54;
 }
+
 h2#timer {
     animation: bounce;
     animation-duration: 4s;
@@ -62,6 +63,11 @@ body {
     cursor: pointer;
     align-self: flex-end;
 }
-h3, .question, .answer, #submit, #restart {
+
+h3,
+.question,
+.answer,
+#submit,
+#restart {
     font-size: 1.3em;
 }
