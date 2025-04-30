@@ -2,7 +2,6 @@
 
 * {
     box-sizing: border-box;
-    background-color: rgb(238, 238, 238);
 }
 
 h1 {
@@ -12,31 +11,45 @@ h1 {
 body {
     text-align: center;
     font-family: Roboto, sans-serif;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+}
+
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    padding: 1em;
+    gap: 1
 }
 
 .question {
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
 }
 
 .answers {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 40vh;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
+    /* height: 40vh; */
 }
 
 .answer {
-    border-radius: 15%;
+    border-radius: 8px;
 }
 
 #submit {
     background-color: rgb(136, 231, 136);
-    margin-top: 1em;
-    border-radius: 15%;
+    /* margin-top: 1em; */
+    border-radius: 8px;
 }
 
 #restart {
-    display: block;
-    margin: 10em 1em;
+    /* display: block; */
+    /* margin: 2em 1em; */
     background-color: rgb(206, 39, 39);
+    border-radius: 20px;
 }
