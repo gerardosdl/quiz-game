@@ -7,6 +7,10 @@
 h1 {
     color: #001F54;
 }
+h2#timer {
+    animation: bounce;
+    animation-duration: 4s;
+}
 
 body {
     text-align: center;
@@ -15,7 +19,8 @@ body {
     display: flex;
     justify-content: center;
     margin: 0;
-    height: 100vh;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .quiz-container {
@@ -23,7 +28,6 @@ body {
     flex-direction: column;
     margin: 1em;
     padding: 1em;
-    gap: 1
 }
 
 .question {
@@ -54,5 +58,5 @@ body {
     color: white;
     border-radius: 20px;
     cursor: pointer;
-    width: fit-content;
+    align-self: flex-end;
 }
