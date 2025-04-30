@@ -32,6 +32,7 @@ body {
 
 .question {
     margin-bottom: 1em;
+    width: 100%;
 }
 
 .answers {
@@ -39,6 +40,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     height: 30vh;
+    width: 100%;
 }
 
 .answer {
@@ -59,4 +61,7 @@ body {
     border-radius: 20px;
     cursor: pointer;
     align-self: flex-end;
+}
+h3, .question, .answer, #submit, #restart {
+    font-size: 1.3em;
 }
