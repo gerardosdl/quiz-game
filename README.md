@@ -4,7 +4,9 @@ This is a simple riddle-themed quiz game featuring multiple-choice questions, ea
 
 **Screenshot**
 
-[A screenshot of the quiz game](https://i.imgur.com/4OUHGDR.png)
+![A screenshot of the quiz game during game](https://i.imgur.com/GcdW9V9.png)
+
+![Screenshot of quiz game when game is done with a perfect score](https://i.imgur.com/w2nUyw7.png)
 
 **Technologies Used**
 * JavaScript
