@@ -46,6 +46,8 @@ body {
 
 .answer {
     border-radius: 8px;
+    width: 70%;
+    margin: 0.3em auto;
 }
 
 #submit {
