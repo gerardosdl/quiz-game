@@ -34,7 +34,7 @@ let isTicking;
 
 /*----- cached elements  -----*/
 const questionEl = document.querySelector(".question");
-const answerEl = document.querySelectorAll(".answer");
+const answerEls = document.querySelectorAll(".answer");
 const messageEl = document.querySelector("h3");
 const scoreEl = document.querySelector("#score");
 const timeEl = document.querySelector("#timer");
@@ -187,13 +187,13 @@ function renderQuestions() {
     // When questionIdx is < questions.length, render the 
     //        current question and its list of possible answers
     questions[questionIdx].answers.forEach(function (answer, idx) {
-      answerEl[idx].textContent = answer;
+      answerEls[idx].textContent = answer;
       //   3.2) Call render().  Since an answer has been selected, render their
       //        selected answer differently (different styling). 
       if (questions[questionIdx].chosenAnswer === idx) {
-        answerEl[idx].style.backgroundColor = "grey";
+        answerEls[idx].style.backgroundColor = "grey";
       } else {
-        answerEl[idx].style.backgroundColor = "";
+        answerEls[idx].style.backgroundColor = "";
       }
     })
   }

@@ -54,6 +54,7 @@ body {
     background-color: rgb(70, 130, 180);
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 #submit {
@@ -63,6 +64,7 @@ body {
     border-radius: 8px;
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 #restart {
