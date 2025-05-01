@@ -6,6 +6,7 @@
 
 h1 {
     color: #001F54;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 h2#timer {
