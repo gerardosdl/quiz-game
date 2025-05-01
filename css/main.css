@@ -82,3 +82,7 @@ h3,
 #restart {
     font-size: 1.3em;
 }
+
+h1, h2, h3, .question{
+    margin: 0.4em 0;
+}
