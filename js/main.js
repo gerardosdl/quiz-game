@@ -38,6 +38,7 @@ const answerEls = document.querySelectorAll(".answer");
 const messageEl = document.querySelector("h3");
 const scoreEl = document.querySelector("#score");
 const timeEl = document.querySelector("#timer");
+const gameBtns = document.querySelectorAll(".answer, #submit")
 /*----- event listeners -----*/
 document.querySelector(".answers").addEventListener("click", handleAnswer);
 document.querySelector("#submit").addEventListener("click", handleSubmit);
@@ -177,6 +178,7 @@ function render() {
   renderQuestions();
   renderMessage();
   renderScoreBoard();
+  renderCursor();
 }
 
 
@@ -217,4 +219,14 @@ function renderMessage() {
 
 function renderScoreBoard() {
   scoreEl.textContent = `Score: ${score}`;
+}
+
+function renderCursor() {
+  gameBtns.forEach(function (btn, idx) {
+    if (!isTicking) {
+      btn.style.cursor = "default";
+    } else {
+      btn.style.cursor = "pointer";
+    }
+  });
 }
