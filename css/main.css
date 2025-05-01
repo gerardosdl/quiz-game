@@ -34,6 +34,7 @@ body {
 .question {
     margin-bottom: 1em;
     width: 100%;
+    color: #001F54;
 }
 
 .answers {
@@ -48,6 +49,10 @@ body {
     border-radius: 8px;
     width: 70%;
     margin: 0.3em auto;
+    border: none;
+    background-color: rgb(70, 130, 180);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 #submit {
@@ -55,6 +60,8 @@ body {
     color: white;
     margin-top: 1em;
     border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 #restart {
@@ -64,6 +71,8 @@ body {
     border-radius: 20px;
     cursor: pointer;
     align-self: flex-end;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 h3,
